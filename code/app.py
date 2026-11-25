@@ -147,7 +147,8 @@ with st.sidebar:
     )
     active_key = _resolve_key(sidebar_api_key)
     if active_key:
-        st.success("API Status: Live Gemini Key Configured")
+        masked = f"{active_key[:6]}...{active_key[-4:]} (len={len(active_key)})" if len(active_key) >= 12 else f"len={len(active_key)}"
+        st.success(f"API Status: Live Gemini Key Configured (`{masked}`)")
     else:
         st.warning("No API key found. Enter a Gemini API key above to execute.")
 

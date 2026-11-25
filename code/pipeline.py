@@ -13,6 +13,8 @@ import json
 import os
 import re
 import time
+import urllib.error
+import urllib.request
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -36,16 +38,19 @@ FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-3.5-flash-lite"]
 
 def load_api_key(explicit_key: str | None = None) -> str:
     """Resolve Gemini API key from explicit input, environment, or gitignored .env."""
-    if explicit_key and explicit_key.strip():
-        return explicit_key.strip()
-    env_key = os.getenv("GEMINI_API_KEY", "").strip()
+    def _clean(val: str) -> str:
+        return val.strip().strip('"').strip("'")
+
+    if explicit_key and _clean(explicit_key):
+        return _clean(explicit_key)
+    env_key = _clean(os.getenv("GEMINI_API_KEY", ""))
     if env_key:
         return env_key
     env_file = ROOT / ".env"
     if env_file.exists():
         for line in env_file.read_text(encoding="utf-8").splitlines():
             if line.strip().startswith("GEMINI_API_KEY="):
-                return line.split("=", 1)[1].strip()
+                return _clean(line.split("=", 1)[1])
     return ""
 
 
@@ -87,6 +92,42 @@ def _extract_json(raw: str) -> dict[str, Any]:
     return json.loads(cleaned)
 
 
+def _rest_generate_json(
+    api_key: str,
+    model_name: str,
+    system_prompt: str,
+    user_prompt: str,
+    temperature: float,
+) -> dict[str, Any]:
+    """Direct v1beta REST fallback avoiding SDK version/header discrepancies."""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+    payload: dict[str, Any] = {
+        "contents": [{"parts": [{"text": user_prompt}]}],
+        "generationConfig": {
+            "temperature": temperature,
+            "topP": 0.9,
+            "maxOutputTokens": 2048,
+            "responseMimeType": "application/json",
+        },
+    }
+    if system_prompt and system_prompt.lower() != "none":
+        payload["systemInstruction"] = {"parts": [{"text": system_prompt}]}
+
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            text = data["candidates"][0]["content"]["parts"][0]["text"]
+            return _extract_json(text)
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="ignore")
+        raise RuntimeError(f"HTTP {exc.code}: {body[:260]}") from exc
+
+
 def _call_gemini_json(
     api_key: str,
     system_prompt: str,
@@ -94,39 +135,18 @@ def _call_gemini_json(
     temperature: float,
 ) -> tuple[dict[str, Any], str]:
     """Call Gemini Flash-Lite models with automatic retry and fallback on 503 spikes."""
-    client = genai.Client(
-        api_key=api_key,
-        http_options=types.HttpOptions(
-            api_version="v1beta",
-            timeout=25000,
-            retry_options=types.HttpRetryOptions(attempts=1),
-        ),
-    )
-    cfg = types.GenerateContentConfig(
-        system_instruction=system_prompt if system_prompt.lower() != "none" else None,
-        temperature=temperature,
-        top_p=0.9,
-        max_output_tokens=2048,
-        response_mime_type="application/json",
-    )
-
+    api_key = api_key.strip().strip('"').strip("'")
     last_err: Exception | None = None
     for attempt in range(6):
         saw_429 = False
         for model_name in FALLBACK_MODELS:
             try:
-                resp = client.models.generate_content(
-                    model=model_name,
-                    contents=user_prompt,
-                    config=cfg,
-                )
-                time.sleep(1.2)
-                return _extract_json(resp.text or "{}"), model_name
+                return _rest_generate_json(api_key, model_name, system_prompt, user_prompt, temperature), model_name
             except Exception as exc:  # noqa: BLE001
                 last_err = exc
                 if "429" in str(exc):
                     saw_429 = True
-                time.sleep(1.5)
+                time.sleep(1.2)
         time.sleep(10.0 if saw_429 else 2.5)
     raise RuntimeError(f"Gemini API call failed across fallback models: {last_err}")
 
