@@ -1,0 +1,340 @@
+[
+  {
+    "case_id": "B1",
+    "note": "Normal CS Apply case",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-3.5-flash-lite",
+      "p2": "gemini-3.5-flash-lite",
+      "p3": "gemini-flash-lite-latest"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": false,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Consider a Binary Search Tree where you need to delete a node that possesses two children. Explain the procedure used to replace this node to preserve the BST invariant.",
+          "question_type": "Short Answer",
+          "bloom_level": "Apply",
+          "marks": 5
+        },
+        {
+          "id": "Q2",
+          "question_text": "Describe the sequence of operations performed during an inorder traversal of a Binary Search Tree and state the resulting order of keys visited.",
+          "question_type": "Short Answer",
+          "bloom_level": "Apply",
+          "marks": 5
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "Q1",
+          "model_answer": "When deleting a node that possesses two children in a Binary Search Tree, the node is replaced by its inorder successor (which is the minimum key in its right subtree) or its inorder predecessor. This procedure preserves the BST invariant where every node's key is strictly greater than all keys in its left subtree and strictly less than all keys in its right subtree.",
+          "marking_scheme": [
+            {
+              "criterion": "Identifies the replacement candidate as the inorder successor (minimum key in the right subtree) or inorder predecessor.",
+              "marks": 3.0
+            },
+            {
+              "criterion": "Explains that this replacement preserves the BST invariant.",
+              "marks": 2.0
+            }
+          ],
+          "total_marks": 5.0
+        },
+        {
+          "id": "Q2",
+          "model_answer": "An inorder traversal of a Binary Search Tree performs operations in the sequence of Left, Root, and Right (Left subtree, current node, Right subtree). The resulting order of keys visited is strictly ascending sorted order.",
+          "marking_scheme": [
+            {
+              "criterion": "Describes the correct sequence of operations (Left, Root, Right).",
+              "marks": 3.0
+            },
+            {
+              "criterion": "States the resulting order of keys visited as strictly ascending sorted order.",
+              "marks": 2.0
+            }
+          ],
+          "total_marks": 5.0
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "Q1",
+          "verdict": "PASS",
+          "issues": [],
+          "suggested_correction": ""
+        },
+        {
+          "id": "Q2",
+          "verdict": "PASS",
+          "issues": [],
+          "suggested_correction": ""
+        }
+      ],
+      "human_oversight_note": "A teacher must verify final material to ensure it aligns with overall course objectives and specific grading expectations."
+    }
+  },
+  {
+    "case_id": "B2",
+    "note": "Normal Analyze case",
+    "status": "PARSE_ERR",
+    "models_used": {
+      "p1": "gemini-3.5-flash-lite",
+      "p2": "gemini-flash-lite-latest",
+      "p3": null
+    },
+    "valid_json": false,
+    "marks_match": false,
+    "bloom_ok": false,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Analyze the role of functional dependencies in eliminating database anomalies and explain how transitioning a relation from Third Normal Form (3NF) to Boyce-Codd Normal Form (BCNF) addresses specific dependencies, ensuring that the decomposition satisfies both lossless-join and dependency preservation properties.",
+          "question_type": "Long Answer",
+          "bloom_level": "Analyze",
+          "marks": 5
+        }
+      ]
+    },
+    "p2": [
+      {
+        "id": "Q1",
+        "model_answer": "Functional dependencies (X -> Y) serve as the foundation for database normalization by identifying and eliminating redundancy along with insertion, deletion, and modification anomalies. Transitioning a relation from Third Normal Form (3NF) to Boyce-Codd Normal Form (BCNF) addresses specific dependencies where 3NF permits a non-trivial functional dependency X -> A if A is a prime attribute even if X is not a superkey. Bcnf strengthens this by requiring that for every non-trivial functional dependency X -> Y, X must be a superkey. Furthermore, when decomposing relations, the decomposition must ensure that it satisfies both lossless-join and dependency preservation properties.",
+        "marking_scheme": [
+          {
+            "criterion": "Explains the role of functional dependencies (X -> Y) in eliminating redundancy and insertion, deletion, and modification anomalies.",
+            "marks": 1.5
+          },
+          {
+            "criterion": "Analyzes the transition from 3NF to BCNF, noting how BCNF strengthens 3NF by requiring X to be a superkey for every non-trivial functional dependency X -> Y.",
+            "marks": 2.0
+          },
+          {
+            "criterion": "Explains that decomposition must satisfy both lossless-join and dependency preservation properties.",
+            "marks": 1.5
+          }
+        ],
+        "total_marks": 5.0
+      }
+    ],
+    "p3": null
+  },
+  {
+    "case_id": "B3",
+    "note": "Normal MCQ case",
+    "status": "PARSE_ERR",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest",
+      "p2": "gemini-flash-lite-latest",
+      "p3": null
+    },
+    "valid_json": false,
+    "marks_match": false,
+    "bloom_ok": false,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "q1",
+          "question_text": "Which of the following HTTP methods is defined as both safe and idempotent according to the syllabus?",
+          "question_type": "MCQ",
+          "bloom_level": "Understand",
+          "marks": 2
+        },
+        {
+          "id": "q2",
+          "question_text": "Why is the POST method classified as neither safe nor idempotent?",
+          "question_type": "MCQ",
+          "bloom_level": "Understand",
+          "marks": 2
+        }
+      ]
+    },
+    "p2": [
+      {
+        "id": "q1",
+        "model_answer": "GET. According to the syllabus, a method is safe if it does not modify server resource state, with GET and HEAD explicitly given as examples. Furthermore, GET is listed among the methods that are idempotent by specification.",
+        "marking_scheme": [
+          {
+            "criterion": "Correctly identifies GET as the HTTP method that is both safe and idempotent.",
+            "marks": 2.0
+          }
+        ],
+        "total_marks": 2.0
+      },
+      {
+        "id": "q2",
+        "model_answer": "POST is classified as neither safe nor idempotent because repeated requests may create duplicate resources, thereby modifying the server resource state and failing the criteria for idempotency.",
+        "marking_scheme": [
+          {
+            "criterion": "Correctly explains that POST can modify state and repeated requests may create duplicate resources.",
+            "marks": 2.0
+          }
+        ],
+        "total_marks": 2.0
+      }
+    ],
+    "p3": null
+  },
+  {
+    "case_id": "B4",
+    "note": "Higher-order Evaluate case",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest",
+      "p2": "gemini-3.5-flash-lite",
+      "p3": "gemini-3.5-flash-lite"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Evaluate the impact of selecting a very small time quantum versus a very large time quantum in Round Robin scheduling on system performance and behavior, as described in the syllabus.",
+          "question_type": "Short Answer",
+          "bloom_level": "Evaluate",
+          "marks": 4
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "Q1",
+          "model_answer": "In Round Robin scheduling, selecting a very small time quantum increases context-switch overhead, which negatively impacts system performance. Conversely, selecting a very large time quantum causes the behavior of Round Robin to degenerate toward First-Come, First-Served (FCFS).",
+          "marking_scheme": [
+            {
+              "criterion": "Explains that a very small time quantum increases context-switch overhead.",
+              "marks": 2.0
+            },
+            {
+              "criterion": "Explains that a very large time quantum causes the behavior to degenerate toward FCFS.",
+              "marks": 2.0
+            }
+          ],
+          "total_marks": 4.0
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "Q1",
+          "verdict": "PASS",
+          "issues": [],
+          "suggested_correction": ""
+        }
+      ],
+      "human_oversight_note": "A teacher must verify final material to ensure it meets institutional standards and specific grading nuances."
+    }
+  },
+  {
+    "case_id": "B5",
+    "note": "Edge: Hinglish informal prompt",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest",
+      "p2": "gemini-3.5-flash-lite",
+      "p3": "gemini-3.5-flash-lite"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "TCP_Q1",
+          "question_text": "Describe the steps involved in the TCP three-way handshake and explain how the congestion window (cwnd) behaves during the Slow Start phase.",
+          "question_type": "Short Answer",
+          "bloom_level": "Understand",
+          "marks": 5
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "TCP_Q1",
+          "model_answer": "The TCP three-way handshake involves the following steps to establish a reliable full-duplex connection: (1) The client sends a SYN packet with an initial sequence number ISN_c; (2) The server replies with a SYN+ACK packet acknowledging ISN_c+1 and sending its own initial sequence number ISN_s; (3) The client sends an ACK packet acknowledging ISN_s+1. During the Slow Start phase, the congestion window (cwnd) starts small and increases by 1 MSS per ACK (which causes it to double roughly every RTT) until it reaches the slow-start threshold (ssthresh).",
+          "marking_scheme": [
+            {
+              "criterion": "Describes step 1 of the three-way handshake (client sends SYN with ISN_c).",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Describes step 2 of the three-way handshake (server replies with SYN+ACK acknowledging ISN_c+1 and sending ISN_s).",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Describes step 3 of the three-way handshake (client sends ACK acknowledging ISN_s+1).",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Explains how cwnd behaves in Slow Start (starts small and increases by 1 MSS per ACK).",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Explains the resulting growth rate in Slow Start (doubling roughly every RTT until reaching ssthresh).",
+              "marks": 1.0
+            }
+          ],
+          "total_marks": 5.0
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "TCP_Q1",
+          "verdict": "PASS",
+          "issues": [],
+          "suggested_correction": "None"
+        }
+      ],
+      "human_oversight_note": "A teacher must verify final material to ensure it aligns with overall curriculum pacing and context."
+    }
+  },
+  {
+    "case_id": "B6",
+    "note": "Edge: Topic completely absent from supplied syllabus excerpt",
+    "status": "REJECTED",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "REJECTED",
+      "reason": "The Syllabus Excerpt does not cover 'Quantum Shor Factorization Algorithm' or modular period finding.",
+      "questions": []
+    },
+    "p2": null,
+    "p3": null
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "chunk_id": "CS-DSA-01",
+    "subject": "Data Structures & Algorithms",
+    "topic": "Binary Search Trees",
+    "learning_outcome": "Perform insertion, search, deletion, and inorder traversal on a Binary Search Tree.",
+    "text": "A Binary Search Tree (BST) is a node-based binary tree where every node's key is strictly greater than all keys in its left subtree and strictly less than all keys in its right subtree. Searching and insertion compare the target key against the current node and descend left or right, taking O(h) time where h is tree height. Inorder traversal (Left, Root, Right) visits BST keys in strictly ascending sorted order. Deletion handles three cases: (1) leaf node is removed directly; (2) node with one child is replaced by its child; (3) node with two children is replaced by its inorder successor (minimum key in the right subtree) or inorder predecessor, preserving the BST invariant."
+  },
+  {
+    "chunk_id": "CS-DSA-02",
+    "subject": "Data Structures & Algorithms",
+    "topic": "Asymptotic Complexity and Master Theorem",
+    "learning_outcome": "Classify growth rates using Big-O, Big-Omega, Big-Theta and solve divide-and-conquer recurrences.",
+    "text": "Asymptotic notations describe algorithm growth as input size n approaches infinity. Big-O gives an asymptotic upper bound, Big-Omega gives a lower bound, and Big-Theta gives a tight bound. For recurrences of the form T(n) = aT(n/b) + f(n) with a >= 1 and b > 1, the Master Theorem compares f(n) against n^(log_b a): Case 1 gives Theta(n^(log_b a)) if f(n) is polynomially smaller; Case 2 gives Theta(n^(log_b a) * log n) if f(n) matches n^(log_b a); Case 3 gives Theta(f(n)) if f(n) is polynomially larger and satisfies the regularity condition a*f(n/b) <= c*f(n) for some c < 1."
+  },
+  {
+    "chunk_id": "CS-DBMS-01",
+    "subject": "Database Management Systems",
+    "topic": "Normalization up to BCNF",
+    "learning_outcome": "Identify update anomalies and decompose relations using functional dependencies up to 3NF and BCNF.",
+    "text": "Database normalization eliminates redundancy and insertion, deletion, and modification anomalies using functional dependencies (X -> Y). First Normal Form (1NF) requires atomic attribute values with no repeating groups. Second Normal Form (2NF) requires 1NF and no partial dependency of any non-prime attribute on a proper subset of a candidate key. Third Normal Form (3NF) requires 2NF and no transitive dependency of a non-prime attribute on a candidate key (for every non-trivial X -> A, either X is a superkey or A is a prime attribute). Boyce-Codd Normal Form (BCNF) strengthens 3NF by requiring that for every non-trivial functional dependency X -> Y, X must be a superkey. Decomposition should preserve lossless-join and dependency preservation properties."
+  },
+  {
+    "chunk_id": "CS-OS-01",
+    "subject": "Operating Systems",
+    "topic": "CPU Scheduling Algorithms",
+    "learning_outcome": "Compute waiting time and turnaround time for FCFS, SJF, and Round Robin scheduling.",
+    "text": "CPU scheduling allocates processor time among processes in the ready queue. Turnaround Time equals Completion Time minus Arrival Time, and Waiting Time equals Turnaround Time minus Burst Time. First-Come, First-Served (FCFS) is non-preemptive and executes processes in arrival order, which can suffer from the convoy effect when a long CPU-bound job precedes short jobs. Shortest Job First (SJF) selects the process with the smallest next CPU burst, minimizing average waiting time, though starvation can occur for long jobs. Round Robin (RR) is preemptive and assigns each ready process a fixed time quantum q; smaller q increases context-switch overhead while very large q degenerates toward FCFS."
+  },
+  {
+    "chunk_id": "CS-CN-01",
+    "subject": "Computer Networks",
+    "topic": "TCP Three-Way Handshake and Congestion Control",
+    "learning_outcome": "Explain connection establishment via SYN/ACK and analyze TCP congestion window behavior.",
+    "text": "TCP establishes a reliable full-duplex connection using a three-way handshake: (1) client sends SYN with initial sequence number ISN_c; (2) server replies with SYN+ACK acknowledging ISN_c+1 and sending ISN_s; (3) client sends ACK acknowledging ISN_s+1. For congestion control, TCP maintains a congestion window (cwnd) and slow-start threshold (ssthresh). In Slow Start, cwnd starts small and increases by 1 MSS per ACK (doubling roughly every RTT) until reaching ssthresh. In Congestion Avoidance, cwnd grows linearly by approximately 1 MSS per RTT (Additive Increase). Upon packet loss detected via timeout, ssthresh is set to cwnd/2 and cwnd resets to 1 MSS; on 3 duplicate ACKs (Fast Retransmit/Fast Recovery), ssthresh and cwnd are halved."
+  },
+  {
+    "chunk_id": "CS-CN-02",
+    "subject": "Computer Networks",
+    "topic": "HTTP Methods and REST API Idempotency",
+    "learning_outcome": "Differentiate GET, PUT, POST, and PATCH semantics including safety and idempotency.",
+    "text": "In RESTful HTTP architectures, a method is safe if it does not modify server resource state (such as GET and HEAD). A method is idempotent if executing identical requests multiple times yields the same server state as executing it once. GET, PUT, and DELETE are idempotent by specification, whereas POST is neither safe nor idempotent because repeated requests may create duplicate resources. PUT replaces the entire target resource representation, so sending a partial JSON payload to PUT risks overwriting omitted fields with defaults or null. PATCH applies partial modifications (deltas) to specified attributes and is not guaranteed to be idempotent unless designed with absolute assignments."
+  },
+  {
+    "chunk_id": "CS-PE-01",
+    "subject": "Prompt Engineering",
+    "topic": "Zero-Shot, Few-Shot, Chain-of-Thought, and RAG",
+    "learning_outcome": "Compare prompting strategies and apply retrieval-augmented grounding to reduce hallucinations.",
+    "text": "Zero-shot prompting provides task instructions without input-output examples, relying purely on model pretraining, which can cause format drift on strict schemas. Few-shot prompting supplies 1 to 5 labeled exemplars inside the prompt to anchor output structure, style, and edge-case handling. Chain-of-Thought (CoT) prompting asks the model to produce intermediate reasoning steps before the final answer, improving accuracy on multi-step logic and arithmetic tasks. Retrieval-Augmented Generation (RAG) retrieves relevant passages from an external document store and injects them into the prompt context alongside refusal constraints, grounding answers in verifiable evidence and reducing unsupported hallucinations."
+  }
+]
