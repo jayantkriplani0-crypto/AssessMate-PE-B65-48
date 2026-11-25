@@ -19,7 +19,7 @@ AssessMate converts a **syllabus source** (uploaded PDF/TXT, custom excerpt, or 
 ---
 
 ## Live Prototype & Links
-- **Deployed Streamlit Prototype:** `https://assessmate-pe-b65-48.streamlit.app` *(update if your Streamlit URL differs after deploying `code/app.py`)*
+- **Deployed Streamlit Prototype:** `https://assessmate-pe-b65-48-ievwpkiytzlhkjngeyagn9.streamlit.app/`
 - **GitHub Repository:** `https://github.com/jayantkriplani0-crypto/AssessMate-PE-B65-48`
 
 ---
