@@ -74,6 +74,7 @@ def generate_with_fallback(
 
     last_err: Exception | None = None
     for attempt in range(8):
+        saw_429 = False
         for model_name in FALLBACK_MODELS:
             try:
                 resp = client.models.generate_content(
@@ -81,13 +82,16 @@ def generate_with_fallback(
                     contents=contents,
                     config=cfg,
                 )
-                time.sleep(0.8)
+                time.sleep(1.5)
                 return (resp.text or ""), model_name
             except Exception as exc:  # noqa: BLE001
                 last_err = exc
-                print(f"    [round {attempt+1}] {model_name}: {str(exc)[:80]}", flush=True)
-                time.sleep(0.8)
-        time.sleep(1.5)
+                msg = str(exc)
+                if "429" in msg:
+                    saw_429 = True
+                print(f"    [round {attempt+1}] {model_name}: {msg[:80]}", flush=True)
+                time.sleep(1.5)
+        time.sleep(12.0 if saw_429 else 3.0)
     raise RuntimeError(f"All fallback Gemini models failed: {last_err}")
 
 

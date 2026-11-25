@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <rect width="960" height="340" fill="#ffffff" rx="10"/>
+  <text x="480" y="34" font-family="Segoe UI, Arial" font-size="17" font-weight="bold" fill="#0f172a" text-anchor="middle">AssessMate Task Decomposition (Problem C3)</text>
+
+  <!-- Root -->
+  <rect x="290" y="54" width="380" height="48" rx="8" fill="#1e3a8a"/>
+  <text x="480" y="83" font-family="Segoe UI, Arial" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">AssessMate: Exam Generation &amp; Quality Audit</text>
+
+  <!-- Connector lines -->
+  <line x1="480" y1="102" x2="480" y2="128" stroke="#475569" stroke-width="2"/>
+  <line x1="125" y1="128" x2="835" y2="128" stroke="#475569" stroke-width="2"/>
+  <line x1="125" y1="128" x2="125" y2="152" stroke="#475569" stroke-width="2"/>
+  <line x1="360" y1="128" x2="360" y2="152" stroke="#475569" stroke-width="2"/>
+  <line x1="600" y1="128" x2="600" y2="152" stroke="#475569" stroke-width="2"/>
+  <line x1="835" y1="128" x2="835" y2="152" stroke="#475569" stroke-width="2"/>
+
+  <!-- Module 1 -->
+  <rect x="25" y="152" width="200" height="155" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+  <text x="125" y="178" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#854d0e" text-anchor="middle">Module 1: RAG &amp; Validator</text>
+  <text x="125" y="205" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Validate topic, Bloom,</text>
+  <text x="125" y="222" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  type, marks, conflicts</text>
+  <text x="125" y="244" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Parse PDF/TXT or Corpus</text>
+  <text x="125" y="266" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Chunk &amp; retrieve top-2</text>
+  <text x="125" y="283" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  grounded passages</text>
+
+  <!-- Module 2 -->
+  <rect x="260" y="152" width="200" height="155" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="360" y="178" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#312e81" text-anchor="middle">Module 2: Generator (P1)</text>
+  <text x="360" y="205" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Map target Bloom verbs</text>
+  <text x="360" y="227" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Format MCQ / Short / Long</text>
+  <text x="360" y="249" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Normalize Hinglish inputs</text>
+  <text x="360" y="271" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Refuse out-of-syllabus</text>
+  <text x="360" y="288" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  queries cleanly</text>
+
+  <!-- Module 3 -->
+  <rect x="500" y="152" width="200" height="155" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+  <text x="600" y="178" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#164e63" text-anchor="middle">Module 3: Answer/Rubric (P2)</text>
+  <text x="600" y="205" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Synthesize grounded answer</text>
+  <text x="600" y="227" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Build observable grading</text>
+  <text x="600" y="244" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  criteria (0.5/1.0 steps)</text>
+  <text x="600" y="266" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Verify rubric sum equals</text>
+  <text x="600" y="283" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  target marks exactly</text>
+
+  <!-- Module 4 -->
+  <rect x="735" y="152" width="200" height="155" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="835" y="178" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#14532d" text-anchor="middle">Module 4: Reviewer (P3)</text>
+  <text x="835" y="205" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Score 5 axes (1-5 scale):</text>
+  <text x="835" y="222" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  Clarity, Relevance, Bloom,</text>
+  <text x="835" y="239" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">  Answerability, Difficulty</text>
+  <text x="835" y="261" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Issue PASS / REVISE + fix</text>
+  <text x="835" y="283" font-family="Segoe UI, Arial" font-size="11" fill="#334155" text-anchor="middle">- Append teacher check note</text>
+</svg>

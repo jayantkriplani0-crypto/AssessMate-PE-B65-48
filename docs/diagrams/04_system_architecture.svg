@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330">
+  <rect width="960" height="330" fill="#ffffff" rx="10"/>
+  <defs>
+    <marker id="arr4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1e3a8a"/>
+    </marker>
+  </defs>
+  <text x="480" y="32" font-family="Segoe UI, Arial" font-size="17" font-weight="bold" fill="#0f172a" text-anchor="middle">AssessMate System Architecture</text>
+
+  <!-- Presentation Tier -->
+  <rect x="35" y="65" width="230" height="205" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="150" y="92" font-family="Segoe UI, Arial" font-size="13" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Presentation Layer</text>
+  <rect x="52" y="110" width="196" height="65" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="150" y="135" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Streamlit UI (code/app.py)</text>
+  <text x="150" y="155" font-family="Segoe UI, Arial" font-size="11" fill="#475569" text-anchor="middle">Forms, PDF Upload, 5 Tabs</text>
+  <rect x="52" y="188" width="196" height="65" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="150" y="213" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Export &amp; Presets</text>
+  <text x="150" y="233" font-family="Segoe UI, Arial" font-size="11" fill="#475569" text-anchor="middle">JSON / Markdown Pack</text>
+
+  <line x1="265" y1="168" x2="315" y2="168" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <!-- Orchestration Tier -->
+  <rect x="320" y="65" width="305" height="205" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+  <text x="472" y="92" font-family="Segoe UI, Arial" font-size="13" font-weight="bold" fill="#312e81" text-anchor="middle">Application &amp; RAG Layer</text>
+  <rect x="340" y="110" width="265" height="65" rx="6" fill="#ffffff" stroke="#a5b4fc"/>
+  <text x="472" y="135" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">code/rag.py (Module 1)</text>
+  <text x="472" y="155" font-family="Segoe UI, Arial" font-size="11" fill="#475569" text-anchor="middle">pypdf Parser + TF-IDF Chunk Retriever</text>
+  <rect x="340" y="188" width="265" height="65" rx="6" fill="#ffffff" stroke="#a5b4fc"/>
+  <text x="472" y="213" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">code/pipeline.py (Modules 2-4)</text>
+  <text x="472" y="233" font-family="Segoe UI, Arial" font-size="11" fill="#475569" text-anchor="middle">Loads prompts/final/*.md + Fallback Chain</text>
+
+  <line x1="625" y1="168" x2="675" y2="168" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <!-- External & Data Tier -->
+  <rect x="680" y="65" width="245" height="205" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="802" y="92" font-family="Segoe UI, Arial" font-size="13" font-weight="bold" fill="#14532d" text-anchor="middle">Model &amp; Knowledge Layer</text>
+  <rect x="698" y="110" width="209" height="65" rx="6" fill="#ffffff" stroke="#86efac"/>
+  <text x="802" y="133" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Google Gemini API</text>
+  <text x="802" y="152" font-family="Segoe UI, Arial" font-size="10.5" fill="#475569" text-anchor="middle">gemini-flash-lite-latest &amp;</text>
+  <text x="802" y="166" font-family="Segoe UI, Arial" font-size="10.5" fill="#475569" text-anchor="middle">gemini-3.5-flash-lite (JSON)</text>
+  <rect x="698" y="188" width="209" height="65" rx="6" fill="#ffffff" stroke="#86efac"/>
+  <text x="802" y="212" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Corpus &amp; Secrets</text>
+  <text x="802" y="231" font-family="Segoe UI, Arial" font-size="10.5" fill="#475569" text-anchor="middle">cs_syllabus_corpus.json +</text>
+  <text x="802" y="245" font-family="Segoe UI, Arial" font-size="10.5" fill="#475569" text-anchor="middle">st.secrets / .env (gitignored)</text>
+</svg>

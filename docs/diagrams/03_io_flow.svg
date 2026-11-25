@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="270" viewBox="0 0 980 270">
+  <rect width="980" height="270" fill="#ffffff" rx="10"/>
+  <defs>
+    <marker id="arr3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <text x="490" y="32" font-family="Segoe UI, Arial" font-size="17" font-weight="bold" fill="#0f172a" text-anchor="middle">AssessMate Input-Output Data Flow</text>
+
+  <rect x="20" y="75" width="185" height="145" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="112" y="98" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Request + Syllabus</text>
+  <text x="32" y="122" font-family="Consolas, monospace" font-size="10.5" fill="#334155">topic, learning_outcome</text>
+  <text x="32" y="140" font-family="Consolas, monospace" font-size="10.5" fill="#334155">bloom_level, difficulty</text>
+  <text x="32" y="158" font-family="Consolas, monospace" font-size="10.5" fill="#334155">question_type, quantity</text>
+  <text x="32" y="176" font-family="Consolas, monospace" font-size="10.5" fill="#334155">marks_per_question</text>
+  <text x="32" y="194" font-family="Consolas, monospace" font-size="10.5" fill="#334155">syllabus_text / PDF</text>
+
+  <line x1="205" y1="147" x2="245" y2="147" stroke="#0f172a" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="250" y="75" width="195" height="145" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.8"/>
+  <text x="347" y="98" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#312e81" text-anchor="middle">RAG + P1 Output JSON</text>
+  <text x="262" y="122" font-family="Consolas, monospace" font-size="10.5" fill="#334155">syllabus_excerpt (top-2)</text>
+  <text x="262" y="140" font-family="Consolas, monospace" font-size="10.5" fill="#334155">status: "OK"|"REJECTED"</text>
+  <text x="262" y="158" font-family="Consolas, monospace" font-size="10.5" fill="#334155">questions: [{id, text,</text>
+  <text x="262" y="176" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  type, bloom_level,</text>
+  <text x="262" y="194" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  action_verb, marks}]</text>
+
+  <line x1="445" y1="147" x2="485" y2="147" stroke="#0f172a" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="490" y="75" width="210" height="145" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.8"/>
+  <text x="595" y="98" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#164e63" text-anchor="middle">P2 Output JSON</text>
+  <text x="502" y="122" font-family="Consolas, monospace" font-size="10.5" fill="#334155">solutions: [{</text>
+  <text x="502" y="140" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  id, model_answer,</text>
+  <text x="502" y="158" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  marking_scheme: [{</text>
+  <text x="502" y="176" font-family="Consolas, monospace" font-size="10.5" fill="#334155">    criterion, marks}],</text>
+  <text x="502" y="194" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  total_marks, sum_ok}]</text>
+
+  <line x1="700" y1="147" x2="740" y2="147" stroke="#0f172a" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="745" y="75" width="215" height="145" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="852" y="98" font-family="Segoe UI, Arial" font-size="12.5" font-weight="bold" fill="#14532d" text-anchor="middle">P3 Audit &amp; Final Pack</text>
+  <text x="757" y="122" font-family="Consolas, monospace" font-size="10.5" fill="#334155">reviews: [{id, scores(5),</text>
+  <text x="757" y="140" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  overall_score, verdict,</text>
+  <text x="757" y="158" font-family="Consolas, monospace" font-size="10.5" fill="#334155">  issues, revised_question}]</text>
+  <text x="757" y="176" font-family="Consolas, monospace" font-size="10.5" fill="#334155">human_oversight_note</text>
+  <text x="757" y="194" font-family="Consolas, monospace" font-size="10.5" fill="#334155">-> UI Tabs + JSON/MD</text>
+</svg>
