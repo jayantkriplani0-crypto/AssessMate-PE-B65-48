@@ -1,0 +1,18 @@
+# Environment secrets & API keys (NEVER commit keys)
+.env
+.env.*
+*.key
+.streamlit/secrets.toml
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# OS & editor artifacts
+.DS_Store
+Thumbs.db
+*.log
