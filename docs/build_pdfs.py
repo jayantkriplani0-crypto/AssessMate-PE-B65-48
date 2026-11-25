@@ -472,18 +472,21 @@ def main() -> None:
     m2_pdf_docs = ROOT / "docs" / "M2_PE-B65-48_AssessMate.pdf"
     m2_pdf_sub = sub_dir / "M2_PE-B65-48_AssessMate.pdf"
 
-    for html_src, pdf_dst in [(tech_html_path, tech_pdf_docs), (m2_html_path, m2_pdf_docs)]:
-        subprocess.run(
-            [
-                str(browser),
-                "--headless",
-                "--disable-gpu",
-                "--no-pdf-header-footer",
-                f"--print-to-pdf={pdf_dst}",
-                html_src.as_uri(),
-            ],
-            check=True,
-        )
+    import tempfile
+    with tempfile.TemporaryDirectory() as prof:
+        for html_src, pdf_dst in [(tech_html_path, tech_pdf_docs), (m2_html_path, m2_pdf_docs)]:
+            subprocess.run(
+                [
+                    str(browser),
+                    "--headless=new",
+                    "--disable-gpu",
+                    f"--user-data-dir={prof}",
+                    "--no-pdf-header-footer",
+                    f"--print-to-pdf={pdf_dst}",
+                    html_src.as_uri(),
+                ],
+                check=True,
+            )
 
     tech_pdf_sub.write_bytes(tech_pdf_docs.read_bytes())
     m2_pdf_sub.write_bytes(m2_pdf_docs.read_bytes())
