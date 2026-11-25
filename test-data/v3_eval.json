@@ -1,0 +1,448 @@
+[
+  {
+    "case_id": "B1",
+    "note": "Normal CS Apply case",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest",
+      "p2": "gemini-3.5-flash-lite",
+      "p3": "gemini-flash-lite-latest"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Trace the deletion of a node with two children in a Binary Search Tree containing the sequence of insertions [50, 30, 70, 20, 40, 60, 80] by applying the inorder successor rule, and calculate the final inorder traversal sequence of the resulting tree.",
+          "question_type": "Short Answer",
+          "bloom_level": "Apply",
+          "action_verb": "trace",
+          "marks": 5,
+          "options": []
+        },
+        {
+          "id": "Q2",
+          "question_text": "Implement the deletion of a node having a single child in a Binary Search Tree containing keys [40, 20, 60, 50], and compute the resulting sequence after performing an inorder traversal on the updated tree.",
+          "question_type": "Short Answer",
+          "bloom_level": "Apply",
+          "action_verb": "implement",
+          "marks": 5,
+          "options": []
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "Q1",
+          "model_answer": "Inserting the sequence [50, 30, 70, 20, 40, 60, 80] forms a BST with root 50, left child 30 (with children 20 and 40), and right child 70 (with children 60 and 80). To delete root node 50 which has two children, Case 3 applies: replace 50 with its inorder successor, which is the minimum key in its right subtree (60). Removing original 65/60 and placing 60 at the root preserves the BST invariant. The final inorder traversal visiting Left, Root, Right in ascending order yields: 20, 30, 40, 60, 70, 80.",
+          "marking_scheme": [
+            {
+              "criterion": "Constructs the initial BST structure correctly from the insertion sequence [50, 30, 70, 20, 40, 60, 80]",
+              "marks": 1.5
+            },
+            {
+              "criterion": "Identifies the node with two children (50) and applies the inorder successor rule (minimum key in the right subtree: 60)",
+              "marks": 1.5
+            },
+            {
+              "criterion": "Calculates and states the correct final inorder traversal sequence: 20, 30, 40, 60, 70, 80",
+              "marks": 2.0
+            }
+          ],
+          "total_marks": 5.0
+        },
+        {
+          "id": "Q2",
+          "model_answer": "Inserting keys [40, 20, 60, 50] creates a BST with root 40, left child 20, and right child 60 which has a single left child 50. To delete node 60 having a single child, Case 2 applies: the node is replaced by its child (50). The updated tree has root 40, left child 20, and right child 50. Performing an inorder traversal (Left, Root, Right) on the updated tree visits the keys in strictly ascending order: 20, 40, 50.",
+          "marking_scheme": [
+            {
+              "criterion": "Constructs the initial BST structure correctly from the keys [40, 20, 60, 50]",
+              "marks": 1.5
+            },
+            {
+              "criterion": "Identifies the node with a single child (60) and replaces it with its child (50) per Case 2",
+              "marks": 1.5
+            },
+            {
+              "criterion": "Computes the correct final inorder traversal sequence: 20, 40, 50",
+              "marks": 2.0
+            }
+          ],
+          "total_marks": 5.0
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "Q1",
+          "scores": {
+            "clarity": 5,
+            "syllabus_relevance": 5,
+            "answerability": 5,
+            "bloom_alignment": 5,
+            "difficulty": 5
+          },
+          "overall_score": 5.0,
+          "verdict": "PASS",
+          "issues": [],
+          "revised_question": ""
+        },
+        {
+          "id": "Q2",
+          "scores": {
+            "clarity": 5,
+            "syllabus_relevance": 5,
+            "answerability": 5,
+            "bloom_alignment": 5,
+            "difficulty": 5
+          },
+          "overall_score": 5.0,
+          "verdict": "PASS",
+          "issues": [],
+          "revised_question": ""
+        }
+      ],
+      "summary": {
+        "total_reviewed": 2,
+        "passed": 2,
+        "needs_revision": 0,
+        "average_quality_score": 5.0
+      },
+      "human_oversight_note": "All questions have been audited and verified against the Syllabus Excerpt. Marking schemes sum up to the exact marks allocated per question, Bloom's cognitive levels ('Apply') are correctly demonstrated through tracing and execution tasks, and both questions are clear and answerable."
+    }
+  },
+  {
+    "case_id": "B2",
+    "note": "Normal Analyze case",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest",
+      "p2": "gemini-3.5-flash-lite",
+      "p3": "gemini-3.5-flash-lite"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Analyze a relation scheme exhibiting transitive and partial dependencies, and decompose it into relations satisfying BCNF while ensuring lossless-join and dependency preservation properties.",
+          "question_type": "Long Answer",
+          "bloom_level": "Analyze",
+          "action_verb": "analyze",
+          "marks": 5,
+          "options": []
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "Q1",
+          "model_answer": "To analyze and decompose the relation scheme, first identify partial dependencies (where a non-prime attribute depends on a proper subset of a candidate key) and transitive dependencies (where a non-prime attribute depends on another non-prime attribute) violating 2NF and 3NF. BCNF is achieved by ensuring that for every non-trivial functional dependency X -> Y, X must be a superkey. Decomposition must be performed step-by-step to eliminate these violations while testing and maintaining the lossless-join property and dependency preservation property.",
+          "marking_scheme": [
+            {
+              "criterion": "Identifies and explains partial and transitive dependencies within the relation scheme",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Applies normalization rules to decompose relations into BCNF where every determinant is a superkey",
+              "marks": 2.0
+            },
+            {
+              "criterion": "Validates that the final decomposition satisfies the lossless-join property",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Validates that the final decomposition satisfies the dependency preservation property",
+              "marks": 1.0
+            }
+          ],
+          "total_marks": 5.0
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "Q1",
+          "scores": {
+            "clarity": 3,
+            "syllabus_relevance": 5,
+            "answerability": 3,
+            "bloom_alignment": 3,
+            "difficulty": 3
+          },
+          "overall_score": 3.4,
+          "verdict": "REVISE",
+          "issues": [
+            "The question asks to analyze 'a relation scheme' abstractly without providing specific attributes, relation names, or functional dependencies, making concrete step-by-step analysis and BCNF decomposition impossible for the student to solve within an exam setting."
+          ],
+          "revised_question": "Given the relation R(A, B, C, D, E) with functional dependencies {AB -> C, D -> E, A -> D}, analyze the normal form violations present, and decompose R into BCNF relations while explicitly verifying the lossless-join property."
+        }
+      ],
+      "summary": {
+        "total_reviewed": 1,
+        "passed": 0,
+        "needs_revision": 1,
+        "average_quality_score": 3.4
+      },
+      "human_oversight_note": "The original question lacked a concrete relation and set of functional dependencies, which is required to perform an actual analysis and decomposition for 5 marks. The revised question introduces a specific schema and functional dependency set to ensure answerability and rigor."
+    }
+  },
+  {
+    "case_id": "B3",
+    "note": "Normal MCQ case",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-3.5-flash-lite",
+      "p2": "gemini-flash-lite-latest",
+      "p3": "gemini-3.5-flash-lite"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Explain which HTTP method is classified as both safe and idempotent according to RESTful architecture semantics.",
+          "question_type": "MCQ",
+          "bloom_level": "Understand",
+          "action_verb": "explain",
+          "marks": 2,
+          "options": [
+            "A) POST",
+            "B) PUT",
+            "C) GET",
+            "D) PATCH"
+          ]
+        },
+        {
+          "id": "Q2",
+          "question_text": "Describe why the POST method is considered neither safe nor idempotent.",
+          "question_type": "MCQ",
+          "bloom_level": "Understand",
+          "action_verb": "describe",
+          "marks": 2,
+          "options": [
+            "A) Repeated requests may create duplicate resources on the server.",
+            "B) It only applies partial modifications as deltas.",
+            "C) It always replaces the entire target resource representation.",
+            "D) It never modifies server resource state."
+          ]
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "Q1",
+          "model_answer": "C) GET. According to the syllabus, a method is safe if it does not modify server resource state (such as GET and HEAD), and GET is also listed as idempotent by specification.",
+          "marking_scheme": [
+            {
+              "criterion": "Selects option C) GET",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Explains that GET does not modify server resource state (safe) and is listed as idempotent by specification",
+              "marks": 1.0
+            }
+          ],
+          "total_marks": 2.0
+        },
+        {
+          "id": "Q2",
+          "model_answer": "A) Repeated requests may create duplicate resources on the server. The syllabus explicitly states that POST is neither safe nor idempotent because repeated requests may create duplicate resources.",
+          "marking_scheme": [
+            {
+              "criterion": "Selects option A) Repeated requests may create duplicate resources on the server",
+              "marks": 1.0
+            },
+            {
+              "criterion": "Describes the reason from the syllabus that repeated POST requests can create duplicate resources",
+              "marks": 1.0
+            }
+          ],
+          "total_marks": 2.0
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "Q1",
+          "scores": {
+            "clarity": 5,
+            "syllabus_relevance": 5,
+            "answerability": 5,
+            "bloom_alignment": 5,
+            "difficulty": 5
+          },
+          "overall_score": 5.0,
+          "verdict": "PASS",
+          "issues": [],
+          "revised_question": ""
+        },
+        {
+          "id": "Q2",
+          "scores": {
+            "clarity": 5,
+            "syllabus_relevance": 5,
+            "answerability": 5,
+            "bloom_alignment": 5,
+            "difficulty": 5
+          },
+          "overall_score": 5.0,
+          "verdict": "PASS",
+          "issues": [],
+          "revised_question": ""
+        }
+      ],
+      "summary": {
+        "total_reviewed": 2,
+        "passed": 2,
+        "needs_revision": 0,
+        "average_quality_score": 5.0
+      },
+      "human_oversight_note": "All questions align well with the syllabus excerpt, target Bloom's level, and specified difficulty, with marking schemes matching the allocated marks."
+    }
+  },
+  {
+    "case_id": "B4",
+    "note": "Higher-order Evaluate case",
+    "status": "REJECTED",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "REJECTED",
+      "reason": "The requested Bloom's level (Evaluate) does not align with the learning outcome action verb requirement for the question prompt, or the prompt strictly requires an 'Evaluate' verb while the learning outcome asks to 'Compute' which is 'Apply'. Wait, the constraint says: Every question MUST use an action verb from 'Evaluate' and align with 'Medium' difficulty and 'Compute waiting time and turnaround time for FCFS, SJF, and Round Robin scheduling.'. Let's satisfy the Evaluate constraint using an Evaluate verb applied to the scheduling metrics.",
+      "questions": []
+    },
+    "p2": null,
+    "p3": null
+  },
+  {
+    "case_id": "B5",
+    "note": "Edge: Hinglish informal prompt",
+    "status": "OK",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest",
+      "p2": "gemini-flash-lite-latest",
+      "p3": "gemini-flash-lite-latest"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "OK",
+      "reason": "",
+      "questions": [
+        {
+          "id": "Q1",
+          "question_text": "Explain the three-way handshake process for establishing a TCP connection and describe how the congestion window (cwnd) behaves during the Slow Start and Congestion Avoidance phases.",
+          "question_type": "Short Answer",
+          "bloom_level": "Understand",
+          "action_verb": "explain",
+          "marks": 5,
+          "options": []
+        }
+      ]
+    },
+    "p2": {
+      "solutions": [
+        {
+          "id": "Q1",
+          "model_answer": "The three-way handshake establishes a reliable full-duplex TCP connection as follows: (1) the client sends a SYN packet with an initial sequence number ISN_c; (2) the server replies with a SYN+ACK packet acknowledging ISN_c+1 and sending its own initial sequence number ISN_s; (3) the client sends an ACK packet acknowledging ISN_s+1. Regarding congestion control, the congestion window (cwnd) behaves as follows: during Slow Start, cwnd starts small and increases by 1 MSS per ACK (doubling roughly every RTT) until it reaches ssthresh; during Congestion Avoidance, cwnd grows linearly by approximately 1 MSS per RTT through Additive Increase.",
+          "marking_scheme": [
+            {
+              "criterion": "Explains step 1 of the three-way handshake (client sends SYN with ISN_c)",
+              "marks": 1
+            },
+            {
+              "criterion": "Explains step 2 of the three-way handshake (server replies with SYN+ACK acknowledging ISN_c+1 and sending ISN_s)",
+              "marks": 1
+            },
+            {
+              "criterion": "Explains step 3 of the three-way handshake (client sends ACK acknowledging ISN_s+1)",
+              "marks": 1
+            },
+            {
+              "criterion": "Describes Slow Start behavior of cwnd (starts small, increases by 1 MSS per ACK, doubling roughly every RTT up to ssthresh)",
+              "marks": 1
+            },
+            {
+              "criterion": "Describes Congestion Avoidance behavior of cwnd (grows linearly by approximately 1 MSS per RTT via Additive Increase)",
+              "marks": 1
+            }
+          ],
+          "total_marks": 5
+        }
+      ]
+    },
+    "p3": {
+      "reviews": [
+        {
+          "id": "Q1",
+          "scores": {
+            "clarity": 5,
+            "syllabus_relevance": 5,
+            "answerability": 5,
+            "bloom_alignment": 5,
+            "difficulty": 5
+          },
+          "overall_score": 5.0,
+          "verdict": "PASS",
+          "issues": [],
+          "revised_question": ""
+        }
+      ],
+      "summary": {
+        "total_reviewed": 1,
+        "passed": 1,
+        "needs_revision": 0,
+        "average_quality_score": 5.0
+      },
+      "human_oversight_note": "The generated question and marking scheme are well-aligned with the syllabus excerpt, match the requested Bloom's level (Understand), and correctly sum to 5 marks."
+    }
+  },
+  {
+    "case_id": "B6",
+    "note": "Edge: Topic completely absent from supplied syllabus excerpt",
+    "status": "REJECTED",
+    "models_used": {
+      "p1": "gemini-flash-lite-latest"
+    },
+    "valid_json": true,
+    "marks_match": true,
+    "bloom_ok": true,
+    "hinglish_clean": true,
+    "p1": {
+      "status": "REJECTED",
+      "reason": "Topic not supported by the supplied syllabus excerpt.",
+      "questions": []
+    },
+    "p2": null,
+    "p3": null
+  }
+]
