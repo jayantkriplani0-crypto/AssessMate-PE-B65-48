@@ -97,6 +97,7 @@ def _call_gemini_json(
     client = genai.Client(
         api_key=api_key,
         http_options=types.HttpOptions(
+            api_version="v1beta",
             timeout=25000,
             retry_options=types.HttpRetryOptions(attempts=1),
         ),
