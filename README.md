@@ -2,7 +2,7 @@
 
 **Course:** Prompt Engineering (`SCSE4041`) — B.Tech 5th Semester, Bennett University  
 **Problem Pool ID:** `C3` (Exam question generator with quality check)  
-**Team ID:** `PE-B65-48` | **Team Name:** `BEYOND THE PROMPT` | **Batch:** `B65-80`  
+**Team ID:** `PE-B65-48` | **Team Name:** `BEYOND THE PROMPT` | **Batch:** B75  
 **Faculty Mentor:** Sonal Kukreja  
 **Main AI Tool & Model:** Gemini Flash-Lite (`gemini-flash-lite-latest` / `gemini-3.5-flash-lite` via `google-genai` SDK) + Streamlit + TF-IDF RAG
 
