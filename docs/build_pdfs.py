@@ -312,7 +312,7 @@ def main() -> None:
     <tr><td><strong>Team ID</strong></td><td>PE-B65-48</td></tr>
     <tr><td><strong>Team Name</strong></td><td>BEYOND THE PROMPT</td></tr>
     <tr><td><strong>Project Title</strong></td><td>AssessMate: Exam Question Generator with Quality Check</td></tr>
-    <tr><td><strong>Batch / Group</strong></td><td>B65-80</td></tr>
+    <tr><td><strong>Batch / Group</strong></td><td>B75 (Group B65-80)</td></tr>
     <tr><td><strong>Faculty Name</strong></td><td>Sonal Kukreja</td></tr>
     <tr><td><strong>Team Members</strong></td><td>
       Jayant Kriplani — <code>S24CSEU2763</code> (Team Leader)<br/>

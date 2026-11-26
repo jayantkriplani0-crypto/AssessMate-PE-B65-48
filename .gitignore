@@ -16,5 +16,7 @@ env/
 .DS_Store
 Thumbs.db
 *.log
+*.mp4
+*.mkv
 submission/
 
