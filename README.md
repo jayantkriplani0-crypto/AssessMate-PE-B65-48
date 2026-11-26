@@ -21,15 +21,16 @@ AssessMate converts a **syllabus source** (uploaded PDF/TXT, custom excerpt, or 
 ## Live Prototype & Links
 - **Deployed Streamlit Prototype:** `https://assessmate-pe-b65-48-ievwpkiytzlhkjngeyagn9.streamlit.app/`
 - **GitHub Repository:** `https://github.com/jayantkriplani0-crypto/AssessMate-PE-B65-48`
+- **Demo Reel (141s):** `https://drive.google.com/file/d/12TF8VMWENLZ4jR9CT6AiHK__72HW8tvJ/view?usp=sharing`
 
 ---
 
 ## Team Members
 | Enrollment No. | Name | Role / Main Task |
 | :--- | :--- | :--- |
-| `S24CSEU2763` | Jayant Kriplani (Team Leader) | `[To be filled before submission]` |
-| `S24CSEU2764` | Shubham Mittal | `[To be filled before submission]` |
-| `S24CSEU2827` | Ajay Chopra | `[To be filled before submission]` |
+| `S24CSEU2763` | Jayant Kriplani (Team Leader) | 3-step pipeline (`code/pipeline.py`), TF-IDF RAG (`code/rag.py`), Streamlit Cloud deployment (`code/app.py`), 141s demo reel |
+| `S24CSEU2764` | Shubham Mittal | Prompt engineering (`P1`, `P2`, `P3`), `v1`–`v4` iterative refinement, Bloom's verbs, few-shot JSON & 5-axis rubric |
+| `S24CSEU2827` | Ajay Chopra | CS syllabus corpus, 13-case evaluation suite (`code/run_tests.py`), 5 SVG diagrams, Technical Report & M2 PDF |
 
 ---
 

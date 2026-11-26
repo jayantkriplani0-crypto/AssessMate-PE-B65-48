@@ -191,10 +191,10 @@ def build_prompt_sheet_html(pid: str, title: str, step: str, md_path: Path, vars
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--proto-url", default="[Add Deployed Streamlit Link After Deploy]")
+    parser.add_argument("--proto-url", default="https://assessmate-pe-b65-48-ievwpkiytzlhkjngeyagn9.streamlit.app/")
     parser.add_argument("--repo-url", default="https://github.com/jayantkriplani0-crypto/AssessMate-PE-B65-48")
-    parser.add_argument("--reel-url", default="[Add Unlisted YouTube / Drive Reel Link After Recording]")
-    parser.add_argument("--reel-len", default="[Exact seconds, 90-150]")
+    parser.add_argument("--reel-url", default="https://drive.google.com/file/d/12TF8VMWENLZ4jR9CT6AiHK__72HW8tvJ/view?usp=sharing")
+    parser.add_argument("--reel-len", default="141")
     args = parser.parse_args()
 
     v1_eval = load_json_safe(ROOT / "test-data" / "v1_baseline_eval.json")
@@ -422,7 +422,7 @@ def main() -> None:
 
   <!-- SECTION 7 -->
   <h1>7. Team contribution</h1>
-  <div class="warn-box"><strong>ACTION REQUIRED BEFORE SUBMISSION:</strong> Fill in each member's Role, Tasks done in Milestone 2, exact Evidence (file/commit/prompt ID/PDF section), and Contribution (%) summing to 100% — and make sure Form Q22 matches these entries.</div>
+  <p>All three team members contributed to design, prompt iteration, implementation, testing, and documentation, and mutually agreed to the contribution breakdown below:</p>
   <table>
     <tr>
       <th>Member name</th>
@@ -435,26 +435,30 @@ def main() -> None:
     <tr>
       <td>Jayant Kriplani</td>
       <td><code>S24CSEU2763</code></td>
-      <td>[Fill Role]</td>
-      <td>[Fill specific Milestone 2 tasks]</td>
-      <td>[Fill file / commit / prompt ID / PDF section]</td>
-      <td>[Fill %]</td>
+      <td>Architecture, App &amp; Deployment Lead</td>
+      <td>Built 3-step chaining engine (<code>pipeline.py</code>), TF-IDF RAG grounding (<code>rag.py</code>), Streamlit web app (<code>app.py</code>), deployed prototype on Streamlit Cloud, recorded and uploaded 141s demo reel.</td>
+      <td><code>code/rag.py</code>, <code>code/pipeline.py</code>, <code>code/app.py</code>, live Streamlit URL, commits <code>1bf828a</code>, <code>211541d</code>, Demo Reel</td>
+      <td>40</td>
     </tr>
     <tr>
       <td>Shubham Mittal</td>
       <td><code>S24CSEU2764</code></td>
-      <td>[Fill Role]</td>
-      <td>[Fill specific Milestone 2 tasks]</td>
-      <td>[Fill file / commit / prompt ID / PDF section]</td>
-      <td>[Fill %]</td>
+      <td>Prompt Design &amp; Iteration Lead</td>
+      <td>Designed and iterated prompts <code>v1</code>–<code>v4</code> (P1 Generator, P2 Answer Key &amp; Rubric, P3 Quality Reviewer), Bloom's action-verb constraints, few-shot JSON exemplars, and 5-axis 1–5 moderation rubric.</td>
+      <td><code>prompts/v1/</code>–<code>prompts/final/</code> (<code>P1</code>–<code>P3</code>), Section 2(c) Prompt Sheets, Section 3 Iteration Log, commits <code>d4797b4</code>, <code>77599f6</code>, <code>7e384b5</code></td>
+      <td>30</td>
     </tr>
     <tr>
       <td>Ajay Chopra</td>
       <td><code>S24CSEU2827</code></td>
-      <td>[Fill Role]</td>
-      <td>[Fill specific Milestone 2 tasks]</td>
-      <td>[Fill file / commit / prompt ID / PDF section]</td>
-      <td>[Fill %]</td>
+      <td>Testing, Diagrams &amp; Documentation Lead</td>
+      <td>Curated public CS syllabus corpus, built and evaluated 13-case test suite, drew 5 original workflow/architecture/RAG SVG diagrams, drafted Technical Report and Milestone 2 documentation.</td>
+      <td><code>test-data/cs_syllabus_corpus.json</code>, <code>code/run_tests.py</code>, <code>test-data/test_results.md</code>, <code>docs/diagrams/*.svg</code>, Section 4 &amp; Section 6</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td colspan="5" style="text-align:right;"><strong>Total Contribution</strong></td>
+      <td><strong>100%</strong></td>
     </tr>
   </table>
 </body>
